@@ -57,7 +57,7 @@ int* relSearch8Bit(char* filePath, char* strToSearch) {
     fd = open(filePath, O_RDONLY);
     cid = 0;
     fo = 1;
-    upperA = -1; lowerA = -1; //-0xFFFF = unset
+    upperA = -1; lowerA = -1; //-1 = unset
 
     while(true) { //chunks loop
         if(cid == 0) { //a new chunk is required
@@ -177,7 +177,7 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian) {
     cid = 0;
     fo = 1;
     co = 1;
-    upperA = -1; lowerA = -1; //-0xFFFF = unset
+    upperA = -1; lowerA = -1; //-1 = unset
 
     while(true) { //chunks loop
         if(cid == 0) { //a new chunk is required
