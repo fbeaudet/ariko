@@ -1,7 +1,7 @@
 Ariko
 =====
 
-A binary text searching tool for the UNIX world.
+A binary text relative searching tool for the UNIX world.
 
 __Compilation__ 
 ```bash
