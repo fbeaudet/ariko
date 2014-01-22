@@ -3,16 +3,19 @@ Ariko
 
 A binary text searching tool.
 
-Compile with gcc: 
+__Compilation__ 
 ```bash
 gcc ariko.c -std=c99 -o "ariko"
 ```
 
-Use like this: 
+__Usage__
 ```bash
 ariko "filepath.rom" "words to search" 8/16 [little/big]
 ```
 
-Where:
+*Where:*
 * 8/16 is the number of bits per character. 
 * Little/big is the endianness, it's optional and concerns only 16-bit characters. (default: big)
+
+
+[Tutoriel d'initiation au rom hacking sous linux avec Ariko et Ghex](https://github.com/fbeaudet/ariko/wiki/Tutoriel-d%27initiation-au-rom-hacking-sous-linux-avec-Ariko-et-Ghex)
