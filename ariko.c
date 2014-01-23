@@ -39,7 +39,7 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
     int* a = NULL;
     int nbOfResults = 0;
     unsigned char lastChunk[CHUNK_SIZE], newChunk[CHUNK_SIZE];
-    unsigned char *chunk; //pointer to current chunks
+    unsigned char *chunk; //pointer to current chunk
     unsigned char charIndex[strLength];
 
     //index search string characters
@@ -163,7 +163,7 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
     int* a = NULL;
     int nbOfResults = 0;
     unsigned char lastChunk[CHUNK_SIZE], newChunk[CHUNK_SIZE];
-    unsigned char *chunk; //pointer to current chunks
+    unsigned char *chunk; //pointer to current chunk
     unsigned char charIndex[strLength];
 
     //index search string characters
