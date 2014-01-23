@@ -120,6 +120,7 @@ int* relSearch8Bit(char* filePath, char* strToSearch)
                 }
             }
             fo += 1; co += 1;
+            
         } //end of bytes loop
         
         //operations before next chunk
@@ -255,6 +256,7 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
                 }
             }
             fo += 2; co += 2;
+            
         } //end of bytes loop
         
         //operations before next chunk
@@ -343,6 +345,7 @@ int main(int argc, char* argv[])
     printf("[");
     for(int x = 0; x < result[0]*3; x+=3) {
         printf("{'hexOffset':'0x%x', 'decOffset':%d, ", result[x+1], result[x+1]);
+        
         if(result[x+2] >= 0) {
             printf("'A':%d", result[x+2]);
             if(result[x+3] >= 0) {
@@ -351,6 +354,7 @@ int main(int argc, char* argv[])
         } else if(result[x+3] >= 0) {
             printf("'a':%d", result[x+3]);
         }
+        
         printf("}");
         if(x != (result[0]-1)*3) {
             printf("\n");
