@@ -295,6 +295,7 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
     return result;
 }
 
+//A more generic function that calls the right sub-function and return his result.
 static int* relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian)
 {
     if(bits == 8) {
