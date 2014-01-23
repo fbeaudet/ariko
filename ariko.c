@@ -24,8 +24,8 @@
 #include <string.h>
 #include <unistd.h>
 
-int* relSearch8Bit(char* filePath, char* strToSearch) {
-
+int* relSearch8Bit(char* filePath, char* strToSearch)
+{
     int* result = calloc(0, sizeof(int)); 
     int* temp;
     int fd, fo, so, co, cid; //file descriptor, file offset, string off-
@@ -73,10 +73,14 @@ int* relSearch8Bit(char* filePath, char* strToSearch) {
             //get a/A value to use.
             if(charIndex[so] != 0xFF) {
                 if(isupper(strToSearch[so])) {
-                    if(upperA == -1) upperA = *(chunk+co) - charIndex[so];
+                    if(upperA == -1) {
+                        upperA = *(chunk+co) - charIndex[so];
+                    }
                     a = &upperA;
                 } else {
-                    if(lowerA == -1) lowerA = *(chunk+co) - charIndex[so];
+                    if(lowerA == -1) {
+                        lowerA = *(chunk+co) - charIndex[so];
+                    }
                     a = &lowerA;
                 }
             }
@@ -141,8 +145,8 @@ int* relSearch8Bit(char* filePath, char* strToSearch) {
     return result;
 }
 
-int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian) {
-
+int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
+{
     int* result = calloc(0, sizeof(int)); 
     int* temp;
     int fd, fo, so, co, cid; //file descriptor, file offset, string off-
@@ -204,10 +208,14 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian) {
                 
                 //get a/A value to use.
                 if(isupper(strToSearch[so])) { //point to value of relative A/a
-                    if(upperA == -1) upperA = value - charIndex[so];
+                    if(upperA == -1) {
+                        upperA = value - charIndex[so];
+                    }
                     a = &upperA;
                 } else {
-                    if(lowerA == -1) lowerA = value - charIndex[so];
+                    if(lowerA == -1) {
+                        lowerA = value - charIndex[so];
+                    }
                     a = &lowerA;
                 }
             }
@@ -275,7 +283,8 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian) {
     return result;
 }
 
-int * relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian) {
+int * relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian)
+{
     if(bits == 8) {
         return relSearch8Bit(filePath, strToSearch);
     } else {
@@ -283,8 +292,8 @@ int * relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian) {
     }
 }
 
-int main(int argc, char* argv[]) {
-    
+int main(int argc, char* argv[])
+{
     //argument number
     if(argc < 4) { 
         printf("Error: not enough arguments to run.\n");
@@ -320,8 +329,12 @@ int main(int argc, char* argv[]) {
 
     //fourth argument : byte endianness
     bool bigEndian;
-    if(argc == 4 || strcmp(argv[4],"little") == 0) bigEndian = false;
-    else bigEndian = true;
+    if(argc == 4 || strcmp(argv[4],"little") == 0) {
+        bigEndian = false;
+    }
+    else {
+        bigEndian = true;
+    }
 
     //ok, fetch search result
     int* result = relSearch(argv[1], argv[2], strtol(argv[3],NULL,10),bigEndian);
@@ -332,10 +345,16 @@ int main(int argc, char* argv[]) {
         printf("{'hexOffset':'0x%x', 'decOffset':%d, ", result[x+1], result[x+1]);
         if(result[x+2] >= 0) {
             printf("'A':%d", result[x+2]);
-            if(result[x+3] >= 0) printf(", 'a':%d", result[x+3]);
-        } else if(result[x+3] >= 0) printf("'a':%d", result[x+3]);
+            if(result[x+3] >= 0) {
+                printf(", 'a':%d", result[x+3]);
+            }
+        } else if(result[x+3] >= 0) {
+            printf("'a':%d", result[x+3]);
+        }
         printf("}");
-        if(x != (result[0]-1)*3) printf("\n");
+        if(x != (result[0]-1)*3) {
+            printf("\n");
+        }
     }
     printf("]\n");
     
