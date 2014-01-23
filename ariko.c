@@ -28,7 +28,7 @@
 
 /*Search for 8-bit characters and return an array of ints where first position 
 is the number of results, then results follow with 3 ints groups. In these groups,
-first position is the memory adress, second is 'A' value and third is 'a' value.
+first position is the memory address, second is 'A' value and third is 'a' value.
 A/a values can be NULL if there is no such character case in strToSearch.*/
 static int* relSearch8Bit(char* filePath, char* strToSearch)
 {
@@ -154,7 +154,7 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
 
 /*Search for 16-bit characters and return an array of ints where first position 
 is the number of results, then results follow with 3 ints groups. In these groups,
-first position is the memory adress, second is 'A' value and third is 'a' value.
+first position is the memory address, second is 'A' value and third is 'a' value.
 A/a values can be NULL if there is no such character case in strToSearch.*/
 static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
 {
@@ -356,7 +356,7 @@ int main(int argc, char* argv[])
     //print result in json format
     printf("[");
     for(int x = 0; x < result[0]*3; x+=3) {
-        printf("{'hexOffset':'0x%x', 'decOffset':%d, ", result[x+1], result[x+1]);
+        printf("{'hexAddress':'0x%x', 'decAddress':%d, ", result[x+1], result[x+1]);
         
         if(result[x+2] >= 0) {
             printf("'A':%d", result[x+2]);
