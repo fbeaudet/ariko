@@ -339,7 +339,7 @@ int main(int argc, char* argv[])
         bigEndian = true;
     }
 
-    //ok, fetch search result
+    //ok, search
     int* result = relSearch(argv[1], argv[2], strtol(argv[3],NULL,10),bigEndian);
     
     //print result in json format
