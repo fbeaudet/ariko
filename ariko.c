@@ -24,6 +24,8 @@
 #include <string.h>
 #include <unistd.h>
 
+#define CHUNK_SIZE 1024
+
 static int* relSearch8Bit(char* filePath, char* strToSearch)
 {
     int* result = calloc(0, sizeof(int)); 
@@ -36,7 +38,7 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
     int upperA, lowerA;
     int* a = NULL;
     int nbOfResults = 0;
-    unsigned char lastChunk[1024], newChunk[1024]; //extracted chunks
+    unsigned char lastChunk[CHUNK_SIZE], newChunk[CHUNK_SIZE];
     unsigned char *chunk; //pointer to current chunks
     unsigned char charIndex[strLength];
 
@@ -62,7 +64,7 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
     while(true) { //chunks loop
         if(cid == 0) { //a new chunk is required
             co = 0;
-            newCLen = read(fd, newChunk, 1024);
+            newCLen = read(fd, newChunk, CHUNK_SIZE);
             if(newCLen == 0) break;
             cLen = &newCLen;
             chunk = newChunk;
@@ -112,7 +114,7 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
                 upperA = -1; lowerA = -1;
                 if(co < -1) { //we have to go back to last chunk
                     fo += 1;
-                    co += 1025;
+                    co += CHUNK_SIZE+1;
                     cid = -1;
                     chunk = lastChunk;
                     cLen = &lastCLen;
@@ -160,7 +162,7 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
     int upperA, lowerA;
     int* a = NULL;
     int nbOfResults = 0;
-    unsigned char lastChunk[1024], newChunk[1024]; //extracted chunks
+    unsigned char lastChunk[CHUNK_SIZE], newChunk[CHUNK_SIZE];
     unsigned char *chunk; //pointer to current chunks
     unsigned char charIndex[strLength];
 
@@ -186,7 +188,7 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
 
     while(true) { //chunks loop
         if(cid == 0) { //a new chunk is required
-            newCLen = read(fd, &newChunk[1], 1023);
+            newCLen = read(fd, &newChunk[1], CHUNK_SIZE-1);
             if(newCLen == 0) break;
             if(lastByte != NULL) {
                 newChunk[0] = *lastByte; 
@@ -248,7 +250,7 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
                 upperA = -1; lowerA = -1;
                 if(co < -2) { //we have to go back to last chunk
                     fo += 2;
-                    co += 1025;
+                    co += CHUNK_SIZE+1;
                     cid = -1;
                     chunk = lastChunk;
                     cLen = &lastCLen;
@@ -265,17 +267,17 @@ static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
         } else if(cid == 0) { //save newChunk in lastChunk
             memcpy(lastChunk, newChunk, strlen(newChunk));
             lastCLen = newCLen;
-            lastByte = &chunk[1023];
-            co -= 1023;
+            lastByte = &chunk[CHUNK_SIZE-1];
+            co -= CHUNK_SIZE-1;
         }
         else if(cid == 1) { //go back to newChunk 
             cid = 2;
-            co -= 1023;
+            co -= CHUNK_SIZE-1;
             chunk = newChunk;
             cLen = &newCLen;
         } else if(cid == 2) { //this time we finaly need a fresh chunk
             cid = 0; 
-            co -= 1023;
+            co -= CHUNK_SIZE-1;
         }
 
     } //end of chunks loop
