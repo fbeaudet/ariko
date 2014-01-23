@@ -221,7 +221,7 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
                 }
             }
 
-            //compare byte with character index
+            //compare bytes character with character index
             if(charIndex[so] == 0xFF || 
             ((*a >= 0) && value - *a == charIndex[so])) {
                 //character match !
