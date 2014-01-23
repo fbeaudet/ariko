@@ -26,6 +26,10 @@
 
 #define CHUNK_SIZE 1024
 
+/*Search for 8-bit characters and return an array of ints where first position 
+is the number of results, then results follow with 3 ints groups. In these groups,
+first position is the memory adress, second is 'A' value and third is 'a' value.
+A/a values can be NULL if there is no such character case in strToSearch.*/
 static int* relSearch8Bit(char* filePath, char* strToSearch)
 {
     int* result = calloc(0, sizeof(int)); 
@@ -148,6 +152,10 @@ static int* relSearch8Bit(char* filePath, char* strToSearch)
     return result;
 }
 
+/*Search for 16-bit characters and return an array of ints where first position 
+is the number of results, then results follow with 3 ints groups. In these groups,
+first position is the memory adress, second is 'A' value and third is 'a' value.
+A/a values can be NULL if there is no such character case in strToSearch.*/
 static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
 {
     int* result = calloc(0, sizeof(int)); 
