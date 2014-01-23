@@ -24,7 +24,7 @@
 #include <string.h>
 #include <unistd.h>
 
-int* relSearch8Bit(char* filePath, char* strToSearch)
+static int* relSearch8Bit(char* filePath, char* strToSearch)
 {
     int* result = calloc(0, sizeof(int)); 
     int* temp;
@@ -146,7 +146,7 @@ int* relSearch8Bit(char* filePath, char* strToSearch)
     return result;
 }
 
-int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
+static int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
 {
     int* result = calloc(0, sizeof(int)); 
     int* temp;
@@ -285,7 +285,7 @@ int* relSearch16Bit(char* filePath, char* strToSearch, bool bigEndian)
     return result;
 }
 
-int * relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian)
+static int* relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian)
 {
     if(bits == 8) {
         return relSearch8Bit(filePath, strToSearch);
