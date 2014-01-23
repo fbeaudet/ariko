@@ -1,5 +1,5 @@
 /*
- * Ariko, a binary text searching tool.
+ * Ariko, a binary text relative search tool for the UNIX world.
  *
  * Copyright (C) 2013 Frederic Beaudet (fredericbeaudet@gmail.com)
  *
