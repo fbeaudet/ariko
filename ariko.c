@@ -326,7 +326,7 @@ int main(int argc, char* argv[])
     //third argument : character bits
     int bits = strtol(argv[3],NULL,10);
     if(bits != 8 && bits != 16) {
-        printf("Error: third arguments must be 8 or 16.\n");
+        printf("Error: third argument must be 8 or 16.\n");
         exit(0);
     }
 
