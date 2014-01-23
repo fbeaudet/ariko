@@ -294,6 +294,7 @@ int * relSearch(char* filePath, char* strToSearch, int bits, bool bigEndian)
     }
 }
 
+//control arguments, if everything's ok then search and print result
 int main(int argc, char* argv[])
 {
     //argument number
