@@ -343,7 +343,7 @@ int main(int argc, char* argv[])
 
     //fourth argument : byte endianness
     bool bigEndian;
-    if(argc == 4 || strcmp(argv[4],"little") == 0) {
+    if(argc == 4 || strcmp(argv[4],"big") == 0) {
         bigEndian = false;
     }
     else {
