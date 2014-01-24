@@ -5,12 +5,12 @@ A binary text relative search tool for the UNIX world.
 
 __Compilation__ 
 ```bash
-gcc ariko.c -std=c99 -o "ariko"
+gcc ariko.c -std=c99 -o ariko
 ```
 
 __Usage__
 ```bash
-ariko "filepath.rom" "words to search" 8/16 [little/big]
+./ariko "filepath.rom" "words to search" 8/16 [little/big]
 ```
 
 *Where:*
