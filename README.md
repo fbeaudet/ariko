@@ -1,18 +1,19 @@
 Ariko
 =====
-
-A binary text relative search tool for the UNIX world.
+A relative search tool for the UNIX world.
 
 __Compilation__ 
 ```bash
-gcc ariko.c -std=c99 -o ariko
+gcc ariko.c relsearch.d -std=c99 -o ariko
 ```
 
 __Usage__
 ```bash
-./ariko "filepath.rom" "words to search" 8/16 [little/big]
-```
+ariko [-b <NB>] [-e <END>] [-x <ID>] <FILEPATH> <SEARCHSTRING>
 
-*Where:*
-* 8/16 is the number of bits per character. 
-* Little/big is the endianness, it's optional and concerns only 16-bit characters. (default: big)
+  Execute a relative search to find character encoding.
+  -b,     bits per character (8 or 16)
+  -e,     "little" OR "big"
+  -x,     id of result to export to character map
+  --help  display this message
+```
