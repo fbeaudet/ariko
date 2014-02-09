@@ -23,7 +23,6 @@
 
 int* relSearch8Bit(char*, char*);
 int* relSearch16Bit(char*, char*, bool);
-void charmap(int, int);
 int* relSearch(char*, char*, int, bool);
 
 #endif // RELSEARCH_H_INCLUDED
