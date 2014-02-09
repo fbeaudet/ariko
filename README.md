@@ -4,7 +4,7 @@ A relative search tool for the UNIX world.
 
 __Compilation__ 
 ```bash
-gcc ariko.c relsearch.d -std=c99 -o ariko
+gcc ariko.c relsearch.c -std=c99 -o ariko
 ```
 
 __Usage__
