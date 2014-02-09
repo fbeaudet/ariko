@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 Usage: ariko [-b <NB>] [-e <END>] [-x <ID>] <FILEPATH> <SEARCHSTRING>\n\
 Execute a relative search to find character encoding.\n\n\
   -b,     bits per character (8 or 16)\n\
-  -e,     \"little\" OR \"big\"\n\
+  -e,     endianness: \"little\" OR \"big\"\n\
   -x,     id of result to export to character map\n\
   --help  display this message\n";
     int* result = NULL; //search result
