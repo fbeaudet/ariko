@@ -7,7 +7,7 @@ __Compilation__
 ```bash
 gcc ariko.c relsearch.c -std=c99 -o ariko
 ```
-Windows users should use Cygwin to compile (not tested).
+Windows users should use [Cygwin](http://www.cygwin.com "Cygwin")  to compile (not tested).
 
 __Usage__
 ```bash
