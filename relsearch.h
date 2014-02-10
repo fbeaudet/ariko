@@ -12,8 +12,6 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with Ariko.  If not, see <http://www.gnu.org/licenses/>.
- *
- * Repository: https://github.com/fbeaudet/ariko.git
  */
 
 #ifndef RELSEARCH_H_INCLUDED
