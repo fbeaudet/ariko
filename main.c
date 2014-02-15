@@ -42,12 +42,11 @@ Execute a relative search to find character encoding.\n\n\
     int expId = -1; //charmap export result id
     bool bigEndian = true; //endianness
 
-    //long options (--something)
+    //parsing options
     static struct option longOptions[] = {
         {"help",       no_argument,       0, 'h'},
     };
-
-    //options
+    
     int opt;
     int optindex = 0;
     while((opt = getopt_long(argc, argv, "b:e:x:",longOptions,&optindex)) != -1) {
