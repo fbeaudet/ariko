@@ -14,14 +14,14 @@
  * along with Ariko.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <stdbool.h>
+
 #include <ctype.h>
 #include <fcntl.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdbool.h>
 #include "relsearch.h"
 
 #define CHUNK_SIZE 1024
