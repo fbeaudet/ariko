@@ -18,13 +18,13 @@
  * Repository: https://github.com/fbeaudet/ariko.git
  */
 
-#include <stdbool.h>
 #include <ctype.h>
+#include <getopt.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <getopt.h>
 #include "relsearch.h"
 
 
