@@ -1,6 +1,6 @@
 Ariko
 =====
-A relative search tool for the UNIX world.
+A relative search tool written in C, compatible w/ the UNIX world.
 
 
 __Compilation__ 
