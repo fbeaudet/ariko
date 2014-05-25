@@ -1,13 +1,12 @@
 Ariko
 =====
-A relative search tool written in C, compatible w/ the UNIX world.
+A relative search tool written in C, compatible with the UNIX world.
 
 
 __Compilation__ 
 ```bash
 gcc ariko.c relsearch.c -std=c99 -o ariko
 ```
-Windows users should use [Cygwin](http://www.cygwin.com "Cygwin")  to compile (not tested).
 
 __Usage__
 ```bash
